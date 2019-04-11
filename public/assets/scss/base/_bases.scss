@@ -1,0 +1,54 @@
+html {
+	font-size: 62.5%;
+}
+*,
+*:after,
+*:before {
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body {
+	font: {
+		size: 1.4rem;
+		weight: 400;
+		family: $font;
+	}
+	color: $color-03;
+	line-height: 1.8rem;
+}
+.container {
+	max-width: 1170px;
+	padding-left: 0;
+	padding-right: 0;
+}
+h1,h2,h3,h4,h5,h6,p,ul,li,dl,dt,dd,table,tr,td,figure,figcaption, label {
+	margin: 0;
+	padding: 0;
+}
+h1,h2,h3,h4,h5,h6 {
+	line-height: 1;
+}
+ul {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	display: inline-block;
+	@include transition(all .3s ease);
+	&:focus, &:active, &:hover {
+		outline: 0;
+		text-decoration: none;
+	}
+}
+button {
+	cursor: pointer;
+	border: none;
+	@include transition(all .4s ease);
+	&:focus {
+		outline: 0;
+	}
+}

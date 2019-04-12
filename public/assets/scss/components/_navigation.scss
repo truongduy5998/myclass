@@ -1,0 +1,73 @@
+.navigation {
+	background-color: rgba($color-05, .5);
+	padding: 1.6rem 0;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+}
+.navbar {
+	padding: {
+		top: 0;
+		bottom: 0;
+	}
+	& &-brand {
+		font: {
+			size: 2.4rem;
+			weight: 700;
+		}
+		text-transform: uppercase;
+		padding: 7px;
+		margin-right: 0;
+		line-height: 1;
+		color: $color-01;
+		&:hover {
+			color: $color-02;
+		}
+	}
+	&-expand-lg &-nav {
+		.nav-link {
+			text-transform: uppercase;
+			padding: 1rem 1.5rem;
+			font-weight: 500;
+			color: $color-01;
+			position: relative;
+			&:before {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				right: 50%;
+				height: 2px;
+				background-color: $color-02;
+				@include transition(all .3s ease);
+			}
+			&:hover {
+				color: $color-02;
+				&:before {
+					left: 0;
+					right: 0;
+				}
+			}
+		}
+		.active > .nav-link {
+			color: $color-02;
+			&:before {
+				left: 0;
+				right: 0;
+			}
+		}
+	}
+	&-toggler {
+		padding: .5rem 1rem;
+	}
+	&-light &-toggler {
+		border-color: $color-01;
+		background-color: $color-01;
+	}
+}
+.nav-item {
+	& + & {
+		margin-left: 1rem;
+	}
+}

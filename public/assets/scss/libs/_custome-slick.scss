@@ -1,0 +1,49 @@
+.slick-dotted.slick-slider {
+	margin-bottom: 0;
+}
+.slick-dots {
+	bottom: 50%;
+	right: 40px;
+	@include transform(translateY(50%));
+	width: auto;
+	li, li button {
+		width: auto;
+		height: auto;
+		padding: 0;
+		margin: 0;
+		display: block;
+	}
+	li {
+		+ li {
+			margin-top: 1.5rem;
+		}
+		button {
+			&:before {
+				content: '';
+				width: 10px;
+				height: 10px;
+				background-color: transparent;
+				border: 1px solid $color-04;
+				border-radius: 50%;
+				position: relative;
+				display: inline-block;
+				opacity: 1;
+				@include transition(all .4s ease);
+			}
+			&:hover {
+				&:before {
+					background-color: #ccc;
+					opacity: 1;
+				}
+			}
+		}
+		&.slick-active {
+			button {
+				&:before {
+					background-color: #ccc;
+					opacity: 1;
+				}
+			}
+		}
+	}
+}

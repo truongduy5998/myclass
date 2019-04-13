@@ -1,0 +1,41 @@
+.section {
+	padding: 5rem 0;
+	& &__head {
+		text-align: center;
+		margin-bottom: 5rem;
+	}
+	& &__title {
+		font: {
+			size: 2.8rem;
+			weight: 500;
+		}
+		text-transform: uppercase;
+		color: $color-02;
+	}
+	& &__decor {
+		position: relative;
+		padding: 0 10.5rem;
+		display: inline-block;
+		color: $color-04;
+		font-size: 1.6rem;
+		margin-top: 1rem;
+		&:before, &:after {
+			content: '';
+			height: 1px;
+			width: 90px;
+			background-color: $color-04;
+			position: absolute;
+			top: 50%;
+			@include transform(translateY(-50%));
+		}
+		&:before {
+			left: 0;
+		}
+		&:after {
+			right: 0;
+		}
+	}
+	&-introduce {
+		background-color: $color-06;
+	}
+}

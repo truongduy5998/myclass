@@ -1,0 +1,57 @@
+.skill {
+	&__component {
+		max-width: 75%;
+		margin: 0 auto;
+	}
+	&__item {
+		height: 5rem;
+		width: 100%;
+		position: relative;
+		background-color: rgba($color-04, .4);
+		& + & {
+			margin-top: 1.5rem;
+		}
+	}
+
+	&__run {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		> [class*="skill__"] {
+			position: absolute;
+			top: 50%;
+			@include transform(translateY(-50%));
+			color: $color-01;
+			text-transform: uppercase;
+			font-size: 1.8rem;
+			opacity: 0;
+			@include transition(all 4s ease);
+		}
+	}
+	&__run > &__text {
+		left: 1rem;
+	}
+	&__run > &__percent {
+		right: 1rem;
+	}
+
+	&__html {
+		background-color: $color-07;
+	}
+	&__css {
+		background-color: $color-08;
+	}
+	&__js {
+		background-color: $color-09;
+	}
+	&__jquery {
+		background-color: $color-10;
+	}
+	&__php {
+		background-color: $color-11;
+	}
+	&__sql {
+		background-color: $color-12;
+	}
+}

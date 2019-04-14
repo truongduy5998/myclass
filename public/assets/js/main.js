@@ -75,6 +75,37 @@ jQuery(function($) {
 			}
 		};
 
+		myClass.skillBar = function() {
+			var offsetMain = $('.section-strengths').offset().top;
+			
+			if($(window).scrollTop() >= offsetMain - 550) {
+				$('.skill__item').each(function(id, el) {
+					var percent = $(this).find('.skill__run').attr('data-percent');
+					
+					$(this).find('.skill__text').css('opacity', 1);
+					$(this).find('.skill__percent').css('opacity', 1);
+					
+					$(this).find('.skill__run').animate({
+						width: percent
+					}, 7000);
+				});
+			}
+			$(window).scroll(function() {
+				if($(window).scrollTop() >= offsetMain - 550) {
+					$('.skill__item').each(function(id, el) {
+						var percent = $(this).find('.skill__run').attr('data-percent');
+						
+						$(this).find('.skill__text').css('opacity', 1);
+						$(this).find('.skill__percent').css('opacity', 1);
+						
+						$(this).find('.skill__run').animate({
+							width: percent
+						}, 7000);
+					});
+				}
+			});
+		};
+
 	/*==========================
 	=		INIT FUNCTION      =
 	============================*/
@@ -82,6 +113,7 @@ jQuery(function($) {
 			myClass.sliderFunction();
 			myClass.setHeight();
 			myClass.filterProject();
+			myClass.skillBar();
 		});
 	
 		$(window).on('load', function() {});

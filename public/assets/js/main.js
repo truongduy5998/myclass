@@ -26,14 +26,14 @@ jQuery(function($) {
 						arrows: mArrows
 					});
 
-					console.log(mSlidesToShow);
-					console.log(typeof mSlidesToShow);
-					console.log(mSlidesToScroll);
-					console.log(typeof mSlidesToScroll);
-					console.log(mDots);
-					console.log(typeof mDots);
-					console.log(mArrows);
-					console.log(typeof mArrows);
+					// console.log(mSlidesToShow);
+					// console.log(typeof mSlidesToShow);
+					// console.log(mSlidesToScroll);
+					// console.log(typeof mSlidesToScroll);
+					// console.log(mDots);
+					// console.log(typeof mDots);
+					// console.log(mArrows);
+					// console.log(typeof mArrows);
 				});
 
 			}
@@ -51,12 +51,37 @@ jQuery(function($) {
 			}
 		};
 
+		myClass.filterProject = function() {
+			if( $('.filter__component').length ) {
+				var $grid = $('.filter__component').isotope({
+					itemSelector: '.filter__item',
+					layoutMode: 'fitRows'
+				});
+
+				$('.button__list > .button__item').on('click', function() {
+					var filterValue = $( this ).attr('data-filter');
+					 $grid.isotope({ filter: filterValue });
+				});
+
+				$('.button__list').each(function() {
+					var $button__list = $('.button__list');
+					
+					$($button__list).on('click', '.button__item', function() {
+						$button__list.find('.active').removeClass('active');
+						$(this).addClass('active');
+					});
+				});
+
+			}
+		};
+
 	/*==========================
 	=		INIT FUNCTION      =
 	============================*/
 		$(document).ready(function() {
 			myClass.sliderFunction();
 			myClass.setHeight();
+			myClass.filterProject();
 		});
 	
 		$(window).on('load', function() {});

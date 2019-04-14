@@ -1,0 +1,133 @@
+.filter {
+	&__item {
+		width: 25%;
+		padding: 0 1.5rem 1.5rem;
+		margin-bottom: 1.5rem;
+	}
+	&__box > &__image {
+		position: relative;
+		&:before, &:after {
+			content: '';
+		}
+		&:before {
+			display: block;
+			padding-top: 75%;
+		}
+		&:after {
+			@include pos-all;
+			background: linear-gradient(to bottom right, rgba($color-03, .5) 40%, #0feb9e 100%);
+			pointer-events: none;
+			opacity: 0;
+			@include transition(all .5s ease);
+		}
+		.link {
+			@include pos-all;
+		}
+		img {
+			@include pos-image;
+		}
+	}
+	&__box:hover > &__image {
+		&:after {
+			opacity: 1;
+		}
+	}
+	&__box {
+		position: relative;
+		> [class*="hover-line-"] {
+			@include pos-all;
+			pointer-events: none;
+			&:before, &:after {
+				content: '';
+				position: absolute;
+				background-color: $color-01;
+				@include transition(all .5s ease);
+			}
+		}
+		.hover-line-x {
+			&:before, &:after {
+				height: 2px;
+				left: 50%;
+				right: 50%;
+			}
+			&:before {
+				top: 10%;
+			}
+			&:after {
+				bottom: 10%;
+			}
+		}
+		.hover-line-y {
+			&:before, &:after {
+				width: 2px;
+				top: 50%;
+				bottom: 50%;
+			}
+			&:before {
+				left: 10%;
+			}
+			&:after {
+				right: 10%;
+			}
+		}
+		> .text {
+			font: {
+				size: 1.8rem;
+				weight: 500;
+			}
+			color: $color-01;
+			text-transform: uppercase;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			@include transform(translate(-50%, -50%));
+			@include transition(all .3s ease);
+			opacity: 0;
+			pointer-events: none;
+			&:before {
+				content: '\f067';
+				font: {
+					size: 4rem;
+					family: 'Font Awesome 5 Free';
+					weight: 900;
+				}
+				display: block;
+				text-align: center;
+				padding-bottom: 1rem;
+				line-height: 1;
+			}
+		}
+		&:hover {
+			> .text {
+				opacity: 1;
+			}
+			.hover-line-x {
+				&:before, &:after {
+					left: 10%;
+					right: 10%;
+				}
+			}
+			.hover-line-y {
+				&:before, &:after {
+					top: 10%;
+					bottom: 10%;
+				}
+			}
+		}
+	}
+	&__item > &__title {
+		font: {
+			size: 1.5rem;
+			weight: 500;
+		}
+		text-transform: uppercase;
+		padding: 1.5rem 0;
+		text-align: center;
+	}
+	&__item > &__title &__link {
+		color: inherit;
+		&:hover {
+			color: $color-02;
+		}
+	}
+}

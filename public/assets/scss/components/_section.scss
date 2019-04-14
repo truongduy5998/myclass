@@ -2,7 +2,9 @@
 	padding: 5rem 0;
 	& &__head {
 		text-align: center;
-		margin-bottom: 5rem;
+	}
+	& &__head + &__content {
+		margin-top: 5rem;
 	}
 	& &__title {
 		font: {
@@ -34,6 +36,10 @@
 		&:after {
 			right: 0;
 		}
+	}
+	& &__des {
+		font-size: 1.6rem;
+		margin-top: 1rem;
 	}
 	&-introduce {
 		background-color: $color-06;

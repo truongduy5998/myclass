@@ -11,4 +11,20 @@
 			color: $color-02;
 		}
 	}
+	&.custom &__link {
+		padding: 0;
+		width: 5rem;
+		height: 5rem;
+		text-align: center;
+		background-color: rgba($color-03, .3);
+		line-height: 5rem;
+		border-radius: 50%;
+		&:hover {
+			color: $color-01;
+			background-color: $color-03;
+		}
+	}
+	&.custom > &__item + &__item {
+		margin-left: 5px;
+	}
 }

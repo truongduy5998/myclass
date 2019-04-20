@@ -25,15 +25,6 @@ jQuery(function($) {
 						dots: mDots,
 						arrows: mArrows
 					});
-
-					// console.log(mSlidesToShow);
-					// console.log(typeof mSlidesToShow);
-					// console.log(mSlidesToScroll);
-					// console.log(typeof mSlidesToScroll);
-					// console.log(mDots);
-					// console.log(typeof mDots);
-					// console.log(mArrows);
-					// console.log(typeof mArrows);
 				});
 
 			}
@@ -75,24 +66,19 @@ jQuery(function($) {
 			}
 		};
 
-		myClass.skillBar = function() {
-			var offsetMain = $('.section-strengths').offset().top;
+		function isScrolledIntoView($element) {
+			var docViewTop = $(window).scrollTop();
+			var docViewBottom = docViewTop + $(window).height();
+			var eleTop = $element.offset().top;
+			var eleBottom = eleTop + $element.height();
 			
-			if($(window).scrollTop() >= offsetMain - 550) {
-				$('.skill__item').each(function(id, el) {
-					var percent = $(this).find('.skill__run').attr('data-percent');
-					
-					$(this).find('.skill__text').css('opacity', 1);
-					$(this).find('.skill__percent').css('opacity', 1);
-					
-					$(this).find('.skill__run').animate({
-						width: percent
-					}, 7000);
-				});
-			}
-			$(window).scroll(function() {
-				if($(window).scrollTop() >= offsetMain - 550) {
-					$('.skill__item').each(function(id, el) {
+			return ((eleBottom <= docViewBottom) && (eleTop >= docViewTop));
+		}
+
+		myClass.skillBar = function() {
+			if( $('.section-strengths').length ) {
+				$('.skill__item').each(function() {
+					if( isScrolledIntoView($(this)) ) {
 						var percent = $(this).find('.skill__run').attr('data-percent');
 						
 						$(this).find('.skill__text').css('opacity', 1);
@@ -101,11 +87,54 @@ jQuery(function($) {
 						$(this).find('.skill__run').animate({
 							width: percent
 						}, 7000);
-					});
-				}
-			});
-		};
+					}
+				});
 
+				$(window).on('scroll', function() {
+					$('.skill__item').each(function() {
+						if( isScrolledIntoView($(this)) ) {
+							var percent = $(this).find('.skill__run').attr('data-percent');
+							
+							$(this).find('.skill__text').css('opacity', 1);
+							$(this).find('.skill__percent').css('opacity', 1);
+							
+							$(this).find('.skill__run').animate({
+								width: percent
+							}, 7000);
+						}
+					});
+				});
+			}
+		};
+		
+		function countTo(element) {
+			const numberTo = parseInt(element.getAttribute('data-count'));
+			const speed = parseInt(element.getAttribute('data-speed'));
+			
+			// Chạy trong vòng số miliseconds quy định
+			const miliseconds = Math.floor((speed / numberTo));
+			console.log(miliseconds);
+
+			let i = 0;
+			
+			const intervalValue = setInterval(() => {
+				if(i >= numberTo) {
+					clearInterval(intervalValue);
+				}
+				element.querySelector('.counter__number').textContent = i;
+				i++;
+			}, miliseconds);
+		}
+
+		myClass.countToItem = function() {
+			const counterList = document.querySelectorAll('.counter__item');
+
+			for(let i = 0; i < counterList.length; i++) {
+				console.log('Run');
+				countTo(counterList[i]);
+			}
+		};
+		
 	/*==========================
 	=		INIT FUNCTION      =
 	============================*/
@@ -114,8 +143,11 @@ jQuery(function($) {
 			myClass.setHeight();
 			myClass.filterProject();
 			myClass.skillBar();
+			$('.section-statistical').parallax("0%", 0.1);
+			myClass.countToItem();
 		});
 	
 		$(window).on('load', function() {});
 		$(window).on('resize', function() {});
+		
 });

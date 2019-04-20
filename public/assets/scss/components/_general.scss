@@ -1,3 +1,18 @@
 .projects__component {
 	margin-top: 2.5rem;
 }
+
+.section-statistical {
+	background: url('.././images/section-statistical/city.jpg') no-repeat fixed;
+	background-size: cover;
+	position: relative;
+	margin: 5rem 0 2.5rem;
+	&:before {
+		content: '';
+		@include pos-all;
+		background-color: rgba($color-03, .8);
+	}
+	> * {
+		position: relative;
+	}
+}

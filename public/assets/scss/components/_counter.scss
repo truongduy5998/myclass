@@ -1,0 +1,30 @@
+.counter {
+	&__component {
+		padding: 2.5rem 0 5rem;
+	}
+	&__item {
+		color: $color-01;
+		line-height: 1;
+		text-align: center;
+	}
+	&__item > &__icon {
+		width: 13rem;
+		height: 13rem;
+		text-align: center;
+		line-height: 13rem;
+		border: 2px solid $color-01;
+		border-radius: 50%;
+		font-size: 4rem;
+	}
+	&__item > &__number {
+		font: {
+			size: 6rem;
+			weight: 700;
+		}
+		margin: 2.5rem 0 1rem;
+	}
+	&__item > &__name {
+		font-size: 1.8rem;
+		text-transform: uppercase;
+	}
+}

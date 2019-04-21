@@ -1,5 +1,6 @@
 .social-network {
 	display: flex;
+	flex-direction: row;
 	& &__item + &__item {
 		margin-left: 1rem;
 	}

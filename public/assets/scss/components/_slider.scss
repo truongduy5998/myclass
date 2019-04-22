@@ -1,0 +1,63 @@
+.slider {
+	&-item {
+		position: relative;
+		& &__image {
+			height: 100vh;
+			position: relative;
+			&:before {
+				content: '';
+				display: block;
+				padding-top: 100vh;
+			}
+		}
+		& &__photo {
+			@include pos-image;
+		}
+		& &__content {
+			position: absolute;
+			top: 50%;
+			width: 100%;
+			text-align: center;
+			@include transform(translateY(-50%));
+			color: $color-01;
+			h2 {
+				font-size: 6.2rem;
+			}
+			h3 {
+				font-size: 4.8rem;
+				margin: 1rem 0;
+			}
+			span {
+				color: $color-02;
+			}
+		}
+		& &__des {
+			font-size: 1.8rem;
+			position: relative;
+			padding: 0 5.5rem;
+			display: inline-block;
+			&:before, &:after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				@include transform(translateY(-50%));
+				height: 1px;
+				width: 28px;
+				background-color: $color-02;
+			}
+			&:before {
+				left: 0;
+			}
+			&:after {
+				right: 0;
+			}
+		}
+		& &__social-network {
+			position: absolute;
+			bottom: 4rem;
+			left: 50%;
+			@include transform(translateX(-50%));
+		}
+	}
+}
+

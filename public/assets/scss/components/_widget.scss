@@ -1,0 +1,72 @@
+.widget {
+	&__box {
+		color: $color-01;
+		.form-group {
+			position: relative;
+			input {
+				width: 100%;
+				height: 4.6rem;
+				border: 2px solid $color-01;
+				background-color: transparent;
+				padding: 0 6.5rem 0 1.5rem;
+				color: $color-01;
+			}
+			button {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				width: 5rem;
+				font-size: 1.8rem;
+				color: $color-01;
+				background-color: transparent;
+				&:hover {
+					color: $color-07;
+				}
+			}
+		}
+	}
+	&__box &__title {
+		font: {
+			size: 1.6rem;
+			weight: 700;
+		}
+		line-height: 2rem;
+		text-transform: uppercase;
+		position: relative;
+		padding-bottom: 5px;
+		&:after {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 40px;
+			height: 2px;
+			background-color: $color-01;
+		}
+	}
+	&__box &__title + &__content {
+		margin-top: 2.5rem;
+	}
+	&__box &__item + &__item {
+		margin-top: 5px;
+	}
+	&__box &__link {
+		color: $color-01;
+		&:hover {
+			color: $color-03;
+		}
+	}
+}
+
+.copyright {
+	color: $color-01;
+	padding: 1.6rem 0;
+	text-align: center;
+	.link {
+		color: inherit;
+		&:hover {
+			color: $color-03;
+		}
+	}
+}

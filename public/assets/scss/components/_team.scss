@@ -1,0 +1,63 @@
+.team {
+	&__item > &__image {
+		position: relative;
+		&:before {
+			content: '';
+			display: block;
+			padding-top: 111.11%;
+		}
+		img {
+			@include pos-image;
+		}
+	}
+	&__item &__social {
+		@include pos-all;
+		background-color: rgba($color-02, .8);
+		@include transform(rotateY(180deg) scale(0));
+		@include transition(all .5s ease);
+	}
+	&__item {
+		.social-network {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			@include transform(translate(-50%, -50%));
+		}
+	}
+	&__item > &__info {
+		padding: 1.2rem 1rem;
+		text-align: center;
+	}
+	&__item &__name {
+		font: {
+			size: 1.8rem;
+			weight: 500;
+		}
+		text-transform: uppercase;
+	}
+	&__name > &__link {
+		color: inherit;
+		&:hover {
+			color: $color-02;
+		}
+	}
+	&__item &__name + &__des {
+		margin-top: 1rem;
+	}
+	&__item {
+		background-color: $color-06;
+		@include transition(all .3s ease);
+		&:hover {
+			box-shadow: 1px 1px 9px 0 rgba(0,0,0,.5);
+		}
+	}
+	&__item:hover &__social {
+		@include transform(rotateY(0) scale(1));
+	}
+	&__list {
+		padding-bottom: 3rem;
+		.slick-list {
+			padding-bottom: 1rem;
+		}
+	}
+}

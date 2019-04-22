@@ -1,0 +1,64 @@
+section.section-contact.section
+	.container
+		.section__head
+			h3.section__title Liên hệ với chúng tôi
+			.section__decor
+				i.far.fa-heart
+			p.section__des MyClass.vn rất vui được lắng nghe, được tư vấn học tập và hỗ trợ hết mình cho hệ thống CNTT cả nước.
+		.section__content
+			.row
+				.col-3
+					.contact.contact--address
+						h5.contact__title Thông tin liên hệ
+						.contact__content
+							ul.contact__list
+								li.contact__item
+									i.icon.fas.fa-phone
+									span 0961051014
+								li.contact__item
+									i.icon.fab.fa-facebook-f
+									span https://www.facebook.com/abc
+								li.contact__item
+									i.icon.fas.fa-map-marker-alt
+									span HCM, Viet Nam
+				.col-8
+					.contact.contact--form
+						h5.contact__title Gửi tin nhắn
+						.contact__content
+							form.form(action='', method='')
+								.row
+									.col-6
+										.form__group
+											input#name(type='text', autocomplete='off', required)
+											label(for='name')
+												span Name
+									.col-6
+										.form__group
+											input#email(type='email', autocomplete='off', required)
+											label(for='email')
+												span Email
+									.col-12.mt-4
+										.form__group
+											textarea#mess(placeholder='Tin nhắn')
+									.col-12.mt-4
+										button.form__button(type='submit')
+											i.icon.fas.fa-envelope
+											span Gửi thông tin
+				.col-1
+					.contact.contact--social
+						ul.social-network.custom
+							li.social-network__item
+								a.social-network__link(href='#')
+									i.icon.fab.fa-behance
+							li.social-network__item
+								a.social-network__link(href='#')
+									i.icon.fab.fa-twitter
+							li.social-network__item
+								a.social-network__link(href='#')
+									i.icon.fab.fa-facebook-f
+							li.social-network__item
+								a.social-network__link(href='#')
+									i.icon.fab.fa-google
+							li.social-network__item
+								a.social-network__link(href='#')
+									i.icon.fas.fa-tree

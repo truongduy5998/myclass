@@ -1,0 +1,47 @@
+.intro {
+	&__item {
+		display: flex;
+		padding: 1.5rem 0;
+		@include transition(all .3s ease);
+		&:hover {
+			background-color: $color-01;
+			box-shadow: 1px 1px 2px 0 rgba($color-05, .4);
+		}
+	}
+	&__item > &__icon {
+		flex: 0 0 6rem;
+		text-align: center;
+		.icon {
+			width: 4rem;
+			height: 4rem;
+			line-height: 4rem;
+			color: $color-02;
+			border: 1px solid $color-02;
+			border-radius: 50%;
+			text-align: center;
+			font-size: 1.6rem;
+		}
+	}
+	&__item > &__content {
+		flex-grow: 1;
+		padding: 5px;
+	}
+	&__item &__title {
+		font-size: 2rem;
+		color: $color-03;
+		text-transform: uppercase;
+	}
+	&__item &__link {
+		color: inherit;
+		&:hover {
+			color: $color-02;
+		}
+	}
+	&__item &__des {
+		color: $color-03;
+		font-size: 1.3rem;
+	}
+	&__item &__title + &__des {
+		margin-top: 1rem;
+	}
+}

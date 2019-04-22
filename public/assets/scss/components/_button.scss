@@ -1,0 +1,21 @@
+.button {
+	&__component &__list {
+		display: flex;
+		justify-content: center;
+		padding: 2.5rem 0;
+	}
+	&__list > &__item {
+		padding: 1.1rem 1.5rem;
+		border-radius: 10px;
+		background-color: transparent;
+		text-transform: uppercase;
+		font-weight: 500;
+		&:hover, &.active {
+			background-color: $color-02;
+			color: $color-01;
+		}
+	}
+	&__list > &__item + &__item {
+		margin-left: 2.5rem;
+	}
+}

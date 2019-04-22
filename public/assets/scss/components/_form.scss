@@ -1,0 +1,80 @@
+.form {
+	&__group {
+		position: relative;
+		input  {
+			padding: 2rem 1.5rem 0;
+		}
+		input, textarea {
+			height: 5rem;
+			width: 100%;
+			border: {
+				top: none;
+				left: none;
+				right: none;
+			}
+		}
+		label {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			pointer-events: none;
+			&:after {
+				content: '';
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				height: 1px;
+				width: 0;
+				background-color: $color-07;
+				@include transition(all .5s ease);
+			}
+		}
+		span {
+			position: absolute;
+			left: 1.5rem;
+			top: 2.6rem;
+			@include transition(all .4s ease);
+		}
+		input:focus, input:valid {
+			+ label {
+				&:after {
+					width: 100%;
+				}
+				> span {
+					@include transform(translateY(-100%));
+					color: $color-02;
+					font-weight: 500;
+				}
+			}
+		}
+		textarea {
+			display: block;
+			padding: 15px;
+			&::placeholder {
+				color: $color-03;
+			}
+		}
+	}
+	&__button {
+		display: flex;
+		align-items: center;
+		text-transform: uppercase;
+		padding: 1rem 1.5rem;
+		border: 1px solid $color-04;
+		margin: {
+			right: 0;
+			left: auto;
+		}
+		background-color: $color-01;
+		.icon {
+			margin-right: 1rem;
+		}
+		&:hover {
+			background-color: $color-02;
+			border-color: $color-02;
+			color: $color-01;
+		}
+	}
+}

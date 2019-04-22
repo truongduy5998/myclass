@@ -1,7 +1,6 @@
 .projects__component {
 	margin-top: 2.5rem;
 }
-
 .section-statistical {
 	background: url('.././images/section-statistical/city.jpg') no-repeat fixed;
 	background-size: cover;
@@ -16,7 +15,13 @@
 		position: relative;
 	}
 }
-
+.section-map {
+	padding-top: 5rem;
+}
+#map {
+	width: 100%;
+	height: 25rem;
+}
 #footer {
 	background-color: $color-02;
 	padding: 5rem 0 3rem;

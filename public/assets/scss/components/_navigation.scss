@@ -6,6 +6,9 @@
 	right: 0;
 	top: 0;
 	z-index: 99;
+	&.background {
+		background-color: rgba($color-05, 1);
+	}
 }
 .navbar {
 	padding: {
@@ -49,6 +52,9 @@
 					left: 0;
 					right: 0;
 				}
+			}
+			&:focus {
+				color: $color-01;
 			}
 		}
 		.active > .nav-link {

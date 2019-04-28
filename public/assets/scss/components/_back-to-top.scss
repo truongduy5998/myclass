@@ -1,0 +1,31 @@
+#back-to-top {
+	position: fixed;
+	width: 6rem;
+	height: 6rem;
+	text-align: center;
+	bottom: 0;
+	right: 0;
+	background-color: $color-13;
+	color: $color-01;
+	font-size: 3rem;
+	cursor: pointer;
+	border-top-left-radius: 100%;
+	@include transform(scale(1));
+	@include transition(all .4s ease);
+	pointer-events: auto;
+	opacity: 1;
+	z-index: 99;
+	.icon {
+		position: absolute;
+		top: 2rem;
+		left: 2rem;
+	}
+	&:hover {
+		background-color: $color-14;
+		@include transform(scale(1.2));
+	}
+	&.hidden {
+		opacity: 0;
+		pointer-events: none;
+	}
+}

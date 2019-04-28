@@ -148,7 +148,7 @@ jQuery(function($) {
 					});
 					$(window).scroll(function() {
 						// 75 là do padding-top: 50 + padding-bottom: 25
-						console.log($(window).scrollTop());
+						// console.log($(window).scrollTop());
 						if($(window).scrollTop() >= $($this.attr('href')).offset().top - 75) {
 							$('.navbar-nav').find('.active').removeClass('active');
 							$this.parent().addClass('active');
@@ -173,6 +173,28 @@ jQuery(function($) {
 			}
 		};
 		
+		myClass.backToTop = function() {
+			if( $('#back-to-top').length ) {
+				var valHeight = $(window).height();
+				if($(window).scrollTop() < valHeight) {
+					$('#back-to-top').toggleClass('hidden');
+				} else {
+					$('#back-to-top').removeClass('hidden');
+				}
+				$(window).scroll(function() {
+					if($(window).scrollTop() < valHeight) {
+						$('#back-to-top').addClass('hidden');
+					} else {
+						$('#back-to-top').removeClass('hidden');
+					}
+				});
+				$('#back-to-top').on('click', function() {
+					$('html, body').animate({
+						scrollTop: 0
+					}, 1000);
+				});
+			}
+		};
 	/*==========================
 	=		INIT FUNCTION      =
 	============================*/
@@ -184,9 +206,9 @@ jQuery(function($) {
 			$('.section-statistical').parallax("0%", 0.1);
 			myClass.countToItem();
 			myClass.scrollToElement();
+			myClass.backToTop();
 		});
 	
 		$(window).on('load', function() {});
 		$(window).on('resize', function() {});
-		
 });

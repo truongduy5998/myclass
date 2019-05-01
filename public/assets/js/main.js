@@ -26,7 +26,6 @@ jQuery(function($) {
 						arrows: mArrows
 					});
 				});
-
 			}
 		};
 
@@ -113,7 +112,6 @@ jQuery(function($) {
 			
 			// Chạy trong vòng số miliseconds quy định
 			const miliseconds = Math.floor((speed / numberTo));
-			console.log(miliseconds);
 
 			let i = 0;
 			
@@ -130,11 +128,73 @@ jQuery(function($) {
 			const counterList = document.querySelectorAll('.counter__item');
 
 			for(let i = 0; i < counterList.length; i++) {
-				console.log('Run');
 				countTo(counterList[i]);
 			}
 		};
+
+		myClass.scrollToElement = function() {
+			if( $('#header.navigation').length ) {
+				$('#header .nav-link').each(function() {
+					var $this = $(this);
+					// console.log($($this.attr('href')).offset().top);
+					$this.on('click', function(e) {
+						$('.navbar-nav').find('.active').removeClass('active');
+						$this.parent().addClass('active');
+						$('html, body').stop().animate({
+							// 70 là do menu
+							scrollTop: $($this.attr('href')).offset().top - 70
+						}, 1500);
+						e.preventDefault();
+					});
+					$(window).scroll(function() {
+						// 75 là do padding-top: 50 + padding-bottom: 25
+						// console.log($(window).scrollTop());
+						if($(window).scrollTop() >= $($this.attr('href')).offset().top - 75) {
+							$('.navbar-nav').find('.active').removeClass('active');
+							$this.parent().addClass('active');
+						}
+					});
+				});
+				
+
+				// Background
+				if($(window).scrollTop() > 0) {
+					$('#header.navigation').addClass('background');
+				} else {
+					$('#header.navigation').removeClass('background');
+				}
+				$(window).scroll(function() {
+					if($(window).scrollTop() > 0) {
+						$('#header.navigation').addClass('background');
+					} else {
+						$('#header.navigation').removeClass('background');
+					}
+				});
+			}
+		};
 		
+		myClass.backToTop = function() {
+			if( $('#back-to-top').length ) {
+				var valHeight = $(window).height();
+				if($(window).scrollTop() < valHeight) {
+					$('#back-to-top').toggleClass('hidden');
+				} else {
+					$('#back-to-top').removeClass('hidden');
+				}
+				$(window).scroll(function() {
+					if($(window).scrollTop() < valHeight) {
+						$('#back-to-top').addClass('hidden');
+					} else {
+						$('#back-to-top').removeClass('hidden');
+					}
+				});
+				$('#back-to-top').on('click', function() {
+					$('html, body').animate({
+						scrollTop: 0
+					}, 1000);
+				});
+			}
+		};
 	/*==========================
 	=		INIT FUNCTION      =
 	============================*/
@@ -145,9 +205,10 @@ jQuery(function($) {
 			myClass.skillBar();
 			$('.section-statistical').parallax("0%", 0.1);
 			myClass.countToItem();
+			myClass.scrollToElement();
+			myClass.backToTop();
 		});
 	
 		$(window).on('load', function() {});
 		$(window).on('resize', function() {});
-		
 });

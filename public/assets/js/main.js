@@ -266,7 +266,11 @@ jQuery(function($) {
 			myClass.backToTop();
 		});
 	
-		$(window).on('load', function() {});
+		$(window).on('load', function() {
+			if( $('#loading-page').length ) {
+				$('#loading-page').delay(1500).fadeOut(300);
+			}
+		});
 		$(window).on('resize', function() {
 			myClass.setHeight();
 			myClass.sliderFunction();

@@ -1,0 +1,36 @@
+#loading-page {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 999;
+	background-image: linear-gradient(to right top, #e3e3e3, #cccce6, #abb8ea, #7ea6ef, #2196f3);
+}
+
+.loading {
+	&__center {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		@include transform(translate(-50%, -50%));
+	}
+
+	&__center > &__item {
+		width: 5rem;
+		height: 5rem;
+		border: 8px solid rgba($color-15, .25);
+		border-radius: 50%;
+		border-top-color: $color-15;
+		animation: rotate 1s linear infinite;
+	}
+}
+
+@keyframes rotate {
+	0% {
+		@include transform(rotate(0));
+	}
+	100% {
+		@include transform(rotate(360deg));
+	}
+} 

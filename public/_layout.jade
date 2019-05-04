@@ -19,7 +19,6 @@ html(lang='en')
 		//- STYLES
 		link(rel='stylesheet', href='./assets/scss/styles.css')
 	body
-		
 		header#header.navigation
 			!= partial('./_includes/header/header.jade')
 		
@@ -37,7 +36,6 @@ html(lang='en')
 		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin='anonymous')
 		script(src='./assets/libs/slick/slick.min.js')
 		script(src='https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js')
-		script(src='./assets/libs/parallax/jquery.parallax-1.1.3.js')
 		script.
 			function myMap() {
 				var mCenter = new google.maps.LatLng(10.8657395,106.6186103);
@@ -56,9 +54,17 @@ html(lang='en')
 		script(async='', defer='', src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC9YbLsDrxZleqGkObr8YcDoogGBM-3LW0&callback=myMap')
 		script(src='./assets/libs/wow/wow.min.js')
 		script.
-			new WOW().init();
-		//- script(src='https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.9/SmoothScroll.min.js')
-		//- script.
-		//- 	SmoothScroll({ stepSize: 50 })
+			const wow = new WOW({
+				boxClass: 'wow',
+				animateClass: 'animated',
+				offset: 0,
+				mobile: false,
+				live: true,
+				scrollConainer: null
+				});
+			wow.init();
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.9/SmoothScroll.min.js')
+		script.
+			SmoothScroll({ stepSize: 80 })
 		script(src='./assets/js/main.js')
 

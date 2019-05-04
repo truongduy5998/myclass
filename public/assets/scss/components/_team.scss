@@ -5,6 +5,12 @@
 			content: '';
 			display: block;
 			padding-top: 111.11%;
+			@include for-size(767) {
+				padding-top: 100%;
+			}
+			// @include for-size(480) {
+			// 	padding-top: 75%;
+			// }
 		}
 		img {
 			@include pos-image;

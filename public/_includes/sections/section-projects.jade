@@ -6,8 +6,10 @@ section.section-projects.section#project
 				i.far.fa-heart
 			p.section__des Một số demo mẫu cho dự án mà MyClass.vn đã thực hiện cho các khách hàng.
 	.projects__component
-		.button__component.wow.bounceInUp
-			.container
+		.container
+			.button__component.wow.bounceInUp
+				//- RESPONSIVE
+				button.button__show-tabs(type='button') Tất cả
 				.button__list
 					button.button__item.active(type='button', data-filter='*') Tất cả
 					button.button__item(type='button', data-filter='.trademark') Thương hiệu
@@ -15,7 +17,7 @@ section.section-projects.section#project
 					button.button__item(type='button', data-filter='.design') Thiết kế
 					button.button__item(type='button', data-filter='.picture') Chụp hình
 		.filter__component
-			.filter__item.trademark.design.wow.fadeInLeft(data-wow-delay='0.5s')
+			.filter__item.design.wow.fadeInLeft(data-wow-delay='0.5s')
 				.filter__box
 					.filter__image
 						a.link(href='#')
@@ -25,7 +27,7 @@ section.section-projects.section#project
 					span.text Live preview
 				h3.filter__title
 					a.filter__link(href='#') P1. My project 1
-			.filter__item.web.wow.fadeInLeft(data-wow-delay='0.3s')
+			.filter__item.trademark.wow.fadeInLeft(data-wow-delay='0.3s')
 				.filter__box
 					.filter__image
 						a.link(href='#')
@@ -35,7 +37,7 @@ section.section-projects.section#project
 					span.text Live preview
 				h3.filter__title
 					a.filter__link(href='#') P2. My project 2
-			.filter__item.trademark.picture.design.wow.fadeInRight(data-wow-delay='0.3s')
+			.filter__item.picture.design.wow.fadeInRight(data-wow-delay='0.3s')
 				.filter__box
 					.filter__image
 						a.link(href='#')
@@ -85,7 +87,7 @@ section.section-projects.section#project
 					span.text Live preview
 				h3.filter__title
 					a.filter__link(href='#') P7. My project 7
-			.filter__item.design.wow.fadeInRight(data-wow-delay='0.5s')
+			.filter__item.design.trademark.wow.fadeInRight(data-wow-delay='0.5s')
 				.filter__box
 					.filter__image
 						a.link(href='#')

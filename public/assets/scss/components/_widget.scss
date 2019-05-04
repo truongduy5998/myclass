@@ -47,6 +47,9 @@
 	}
 	&__box &__title + &__content {
 		margin-top: 2.5rem;
+		@include for-size(767) {
+			margin-top: 1.5rem;
+		}
 	}
 	&__box &__item + &__item {
 		margin-top: 5px;

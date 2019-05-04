@@ -1,8 +1,25 @@
 .button {
+	&__component {
+		position: relative;
+	}
 	&__component &__list {
 		display: flex;
 		justify-content: center;
 		padding: 2.5rem 0;
+		@include for-size(480) {
+			flex-direction: column;
+			padding: 0;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 90;
+			background-color: $color-01;
+			box-shadow: 0 5px 12px 1px rgba($color-05, .3);
+			overflow: hidden;
+			opacity: 0;
+			pointer-events: none;
+		}
 	}
 	&__list > &__item {
 		padding: 1.1rem 1.5rem;
@@ -14,8 +31,61 @@
 			background-color: $color-02;
 			color: $color-01;
 		}
+		@include for-size(480) {
+			&:hover, &.active {
+				background-color: initial;
+				color: initial;
+			}
+			height: 0;
+			padding: 0;
+			@include transition(all .3s ease);
+		}
 	}
 	&__list > &__item + &__item {
 		margin-left: 2.5rem;
+		@include for-size(480) {
+			margin-left: 0;
+		}
+	}
+	// RESPONSIVE <= 480
+	&__show-tabs {
+		display: none;
+		@include for-size(480) {
+			display: block;
+			font: {
+				size: 1.8rem;
+				weight: 500;
+			}
+			width: 100%;
+			padding: 1.1rem 0;
+			text-align: center;
+			background-color: $color-03;
+			color: $color-01;
+			border-radius: 20px;
+			position: relative;
+			text-transform: uppercase;
+			&:after {
+				content: '\f078';
+				font: {
+					family: 'Font Awesome 5 Free';
+					weight: 900;
+					size: 2rem;
+				}
+				position: absolute;
+				top: 50%;
+				right: 1.5rem;
+				@include transform(translateY(-50%));
+			}
+			margin-bottom: 3rem;
+		}
+	}
+	&__open-list &__list {
+		overflow: visible;
+		opacity: 1;
+		pointer-events: auto;
+	}
+	&__open-list &__list > &__item {
+		height: 4rem;
+		padding: 1.1rem 1.5rem;
 	}
 }

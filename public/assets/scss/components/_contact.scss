@@ -24,10 +24,25 @@
 	}
 	.social-network.custom {
 		text-align: center;
-		flex-direction: column;
+		justify-content: center;
+		@include for-size(992) {
+			flex-direction: column;
+		}
 		.social-network__item + .social-network__item {
-			margin-left: 0;
-			margin-top: 3px;
+			@include for-size(992) {
+				margin-left: 0;
+				margin-top: 3px;
+			}
+		}
+	}
+	&__component {
+		> .row > [class*="col-"] {
+			@include for-size(767) {
+				margin-top: 3rem;
+				&:nth-child(-n + 1) {
+					margin-top: 0;
+				}
+			}
 		}
 	}
 }

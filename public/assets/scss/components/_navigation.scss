@@ -36,21 +36,25 @@
 			font-weight: 500;
 			color: $color-01;
 			position: relative;
-			&:before {
-				content: '';
-				position: absolute;
-				bottom: 0;
-				left: 50%;
-				right: 50%;
-				height: 2px;
-				background-color: $color-02;
-				@include transition(all .3s ease);
+			@include for-size(992) {
+				&:before {
+					content: '';
+					position: absolute;
+					bottom: 0;
+					left: 50%;
+					right: 50%;
+					height: 2px;
+					background-color: $color-02;
+					@include transition(all .3s ease);
+				}
 			}
 			&:hover {
 				color: $color-02;
-				&:before {
-					left: 0;
-					right: 0;
+				@include for-size(992) {
+					&:before {
+						left: 0;
+						right: 0;
+					}
 				}
 			}
 			&:focus {
@@ -74,7 +78,10 @@
 	}
 }
 .nav-item {
-	& + & {
-		margin-left: 1rem;
+	@include for-size(992) {
+		& + & {
+			margin-left: 1rem;
+		}
 	}
+		
 }

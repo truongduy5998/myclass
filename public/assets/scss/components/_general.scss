@@ -26,3 +26,18 @@
 	background-color: $color-02;
 	padding: 5rem 0 3rem;
 }
+.footer {
+	@include for-size(991) {
+		[class*="col-"] {
+			margin-top: 3rem;
+			&:nth-child(-n + 2) {
+				margin-top: 0;
+			}
+			@include for-size(767) {
+				&:nth-child(2) {
+					margin-top: 3rem;
+				}
+			}
+		}
+	}
+}

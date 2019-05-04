@@ -2,6 +2,8 @@
 @import "./abstracts/mixins";
 @import "./base/bases";
 
+@import "./components/loading";
+
 @import "./components/navigation";
 @import "./components/slider";
 @import "./components/social-network";
@@ -10,7 +12,6 @@
 @import "./components/section";
 @import "./components/intro";
 
-@import "./components/general";
 @import "./components/button";
 
 @import "./components/filter";
@@ -24,4 +25,5 @@
 @import "./components/form";
 @import "./components/widget";
 
+@import "./components/general";
 @import "./components/back-to-top";

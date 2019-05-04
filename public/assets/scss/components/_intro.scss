@@ -30,6 +30,9 @@
 		font-size: 2rem;
 		color: $color-03;
 		text-transform: uppercase;
+		@include for-size(480) {
+			font-size: 1.6rem;
+		}
 	}
 	&__item &__link {
 		color: inherit;

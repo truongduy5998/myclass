@@ -2,6 +2,9 @@
 	&__component {
 		max-width: 75%;
 		margin: 0 auto;
+		@include for-size(991) {
+			max-width: 100%;
+		}
 	}
 	&__item {
 		height: 5rem;

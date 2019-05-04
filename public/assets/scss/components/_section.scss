@@ -5,11 +5,17 @@
 	}
 	& &__head + &__content {
 		margin-top: 5rem;
+		@include for-size(600) {
+			margin-top: 2rem;
+		}
 	}
 	& &__title {
 		font: {
 			size: 2.8rem;
 			weight: 500;
+		}
+		@include for-size(480) {
+			font-size: 2.4rem;
 		}
 		text-transform: uppercase;
 		color: $color-02;
@@ -41,6 +47,10 @@
 		font-size: 1.6rem;
 		margin-top: 1rem;
 		padding: 0 13rem;
+		@include for-size(600) {
+			font-size: 1.4rem;
+			padding: 0;
+		}
 	}
 	&-introduce {
 		background-color: $color-06;
